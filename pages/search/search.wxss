@@ -1,0 +1,16 @@
+/* pages/search/search.wxss */
+@import '../../weui.wxss';
+
+.searchBox {
+  box-sizing: border-box;
+  padding: 0.5em 1em;
+  margin: auto;
+  margin-top: 20px;
+  width: 95%;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.weui-navbar__item {
+  background-color: #fff
+}

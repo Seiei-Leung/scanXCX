@@ -1,0 +1,50 @@
+/* pages/scanresult/scanresult.wxss */
+.inandout .pageWrapper {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+	font-size: 0;
+}
+.inandout .pageWrapper .item{
+	width: 50px;
+	padding: 4px 8px;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	border-radius: 4px;
+	background-color: #ddd
+}
+.inandout .pageWrapper .active {
+	background-color: #3BBF67;
+}
+.inandout .inputBar {
+	margin-top: 20px;
+	font-size: 0px;
+}
+.inandout .inputBar .txt {
+	display: inline-block;
+	padding-left: 1em;
+	font-size: 16px;
+	vertical-align: top;
+}
+.inandout .inputBar .input{
+	display: inline-block;
+	padding-left: 4px;
+	width: 150px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 16px;
+	border: 1px solid #ddd;
+	vertical-align: top;
+}
+.inandout .inputBar .label{
+	box-sizing: border-box;
+	display: inline-block;
+	padding-left: 1em;
+	width: 100px;
+	height: 24px;
+	vertical-align: top;
+	line-height: 24px;
+	font-size: 16px;
+	
+}

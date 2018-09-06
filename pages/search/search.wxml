@@ -1,0 +1,47 @@
+<view>
+  <view class="weui-cells weui-cells_after-title" style='position: fixed;left: 0; right: 0;'>
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd" style="width: 105px">
+        <picker bindchange="bindCountryCodeChange" value="{{selectCodeIndex}}" range="{{selectCodes}}">
+          <view class="weui-select">{{selectCodes[selectCodeIndex]}}</view>
+        </picker>
+      </view>
+      <view class="weui-cell__bd weui-cell__bd_in-select-before">
+        <input class="weui-input" bindinput="bindKeyInput" placeholder="请输入内容" />
+      </view>
+    </view>
+  </view>
+
+  <view class="page" style='position: fixed;top:44px;left: 0; right: 0;'>
+    <view class="page__bd">
+      <view class="weui-tab">
+        <view class="weui-navbar">
+          <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+              <view class="weui-navbar__title">{{item}}</view>
+            </view>
+          </block>
+          <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel">
+        </view>
+      </view>
+    </view>
+  </view>
+    <view style="padding: 100px 0 20px 0;z-index: -1;">
+          <view>
+            <view class="searchBox" wx:for="{{resultList}}" wx:for-item="item" wx:if="{{activeIndex == 0 && item.sizes}}">
+              <view>仓位：{{item.position}}</view>
+              <view>制单号：{{item.orderno}}</view>
+              <view>尺码：{{item.sizes}}</view>
+            </view>
+          </view>
+          <view>
+            <view class="searchBox" wx:for="{{resultList}}" wx:for-item="item" wx:if="{{activeIndex == 1 && item.bedno}}">
+              <view>仓位：{{item.position}}</view>
+              <view>制单号：{{item.orderno}}</view>
+              <view>床次：{{item.bedno}}</view>
+            </view>
+          </view>
+          </view>
+</view>

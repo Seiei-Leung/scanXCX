@@ -1,0 +1,29 @@
+/**index.wxss**/
+.linkBar {
+  display: flex
+}
+.linkBar .item{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+	height: 100px;
+	border: 1rpx solid #eee;
+}
+.linkBar .item.active {
+  background-color: #eee;
+}
+.linkBar .item .imgWrapper {
+	margin: auto;
+	margin-top: 20px; 
+	width: 40px;
+	height: 40px;
+}
+.linkBar .item .imgWrapper .img {
+  height: 100%;
+  width: 100%;
+}
+.linkBar .item .txt {
+	margin-top: 5px;
+	text-align: center;
+  font-size: 12px;
+}

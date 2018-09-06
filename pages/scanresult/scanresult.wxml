@@ -1,0 +1,25 @@
+<view class='inandout'>
+  <view class="pageWrapper" style="padding-top: 20px;">
+    <view class="item active" bindtap="scanForBedNum" data-kind="bed">分床</view>
+    <view class="item active" bindtap="scanForBedNum" data-kind="size">分码</view>
+    <view class="item active" bindtap="outStorage">出仓</view>
+  </view>
+  <view>
+    <view class="inputBar">
+      <view class="label">仓位：</view>
+      <view class="input">{{storageNum}}</view>
+    </view>
+    <view class="inputBar">
+      <view class="label">制单号：</view>
+      <view class="input">{{orderno}}</view>
+    </view>
+    <view class="inputBar" wx:if="{{activeIndex == 0}}">
+      <view class="label">床次：</view>
+      <view class="input">{{bedNum}}</view>
+    </view>
+    <view class="inputBar" wx:if="{{activeIndex == 1}}">
+      <view class="label">尺码：</view>
+      <view class="input">{{size}}</view>
+    </view>
+  </view>
+</view>

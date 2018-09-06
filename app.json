@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/search/search",
+    "pages/scanresult/scanresult"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#444",
+    "navigationBarTitleText": "裁片超市",
+    "navigationBarTextStyle": "white"
+  }
+}
