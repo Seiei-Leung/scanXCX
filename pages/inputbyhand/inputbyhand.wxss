@@ -1,0 +1,88 @@
+.pageWrapper {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+	font-size: 0;
+}
+.pageWrapper .item{
+	width: 80px;
+	padding: 4px 8px;
+	color: #fff;
+	font-size: 16px;
+  line-height: 1.8em;
+	text-align: center;
+	border-radius: 4px;
+	background-color: #ddd;
+}
+.pageWrapper .active {
+	background-color: #3BBF67;
+}
+.inputBar {
+  display: flex;
+  justify-content: center;
+	margin-top: 20px;
+	font-size: 0px;
+}
+.inputBar .txt {
+	display: inline-block;
+	padding-left: 1em;
+	font-size: 16px;
+	vertical-align: top;
+}
+.inputBar .input{
+	display: inline-block;
+	padding-left: 4px;
+	width: 150px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 16px;
+	border: 1px solid #ddd;
+	vertical-align: top;
+}
+.inputBar .label{
+	box-sizing: border-box;
+	display: inline-block;
+	padding-left: 1em;
+	width: 100px;
+	height: 24px;
+	vertical-align: top;
+	line-height: 24px;
+	font-size: 16px;
+}
+.btn {
+  margin:auto;
+  margin-top: 30px;
+	width: 140px;
+	padding: 4px 8px;
+	color: #fff;
+	font-size: 16px;
+  line-height: 1.8em;
+	text-align: center;
+	border-radius: 4px;
+	background-color: #3BBF67;
+}
+.resultWrapper {
+  margin-top: 130px;
+  padding-bottom: 50px;
+}
+.resultItem {
+  margin-top: 20px;
+  padding-left: 10px;
+}
+.resultItem .txt {
+  display: inline-block;
+  padding: 0 5px;
+  line-height: 1.8em;
+  color: #444;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+.resultWrapper .cancelBtn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  line-height: 1.8em;
+  background-color: #ddd;
+  text-align: center;
+  color: #444;
+}

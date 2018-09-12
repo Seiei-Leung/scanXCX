@@ -1,8 +1,8 @@
 <view class='inandout'>
   <view class="pageWrapper" style="padding-top: 20px;">
-    <view class="item active" bindtap="scanForBedNum" data-kind="bed">分床</view>
-    <view class="item active" bindtap="scanForBedNum" data-kind="size">分码</view>
-    <view class="item active" bindtap="outStorage">出仓</view>
+    <view class="item" hover-class='active' bindtap="scanForBedNum" data-kind="bed">分床</view>
+    <view class="item" hover-class='active' bindtap="scanForBedNum" data-kind="size">分码</view>
+    <view class="item" hover-class='active' bindtap="inputByHand">手动</view>
   </view>
   <view>
     <view class="inputBar">
@@ -23,3 +23,4 @@
     </view>
   </view>
 </view>
+<dialog id='dialog' dialogTitle="{{dialogTitle}}" dialogTxt="{{dialogTxt}}" iconType="{{iconType}}"></dialog>

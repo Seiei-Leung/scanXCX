@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/search/search",
-    "pages/scanresult/scanresult"
+    "pages/scanresult/scanresult",
+    "pages/scanoutresult/scanoutresult",
+    "pages/inputbyhand/inputbyhand"
   ],
   "window": {
     "backgroundTextStyle": "light",

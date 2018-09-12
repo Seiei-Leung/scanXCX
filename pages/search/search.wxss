@@ -14,3 +14,68 @@
 .weui-navbar__item {
   background-color: #fff
 }
+
+.secondWrapper {
+  position: fixed;
+  top:44px;
+  width:100%;
+  padding:0;
+  font-size:0;
+  border-bottom:1px solid #ddd;
+  z-index: 100;
+  background-color: #fff
+}
+.sizeWrapper {
+  display: inline-block;
+  width: 50%;
+  height: 44px;
+}
+.bedWrapper {
+  display: inline-block;
+  box-sizing:border-box;
+  width: 50%;
+  height: 44px;
+  border-left: 1px solid #ddd
+}
+.secondWrapper .title {
+  box-sizing:border-box;
+  display:inline-block;
+  width:30%;
+  line-height:44px;
+  vertical-align:top;
+  text-align: center;
+  font-size:16px;
+  color:#444;
+  border-right:1px solid #ddd;
+}
+.secondWrapper .inputWrapper {
+  display:inline-block;
+  width:70%;
+  vertical-align:top;
+}
+.secondWrapper .inputWrapper input{
+  box-sizing:border-box;
+  padding-left: 0.5em;
+  width:100%;
+  height:44px;
+  line-height:44px;
+  font-size:16px;
+}
+.resultWrapper {
+  position:relative;
+  border: 1px solid #ddd;
+  padding-bottom:20px;
+}
+.resultWrapper .title{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left: 0px;
+  box-sizing: border-box;
+  padding-left: 2px;
+  writing-mode: vertical-lr;
+  width: 10%;
+  text-align: center;
+  background-color: #ffbebe;
+  color: #444;
+}

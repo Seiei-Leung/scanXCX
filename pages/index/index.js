@@ -1,35 +1,73 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
   },
+  onReady: function () {
+    this.dialog = this.selectComponent("#dialog");
+  },
   goscan: function () {
+    var that = this;
     wx.scanCode({
       onlyFromCamera: true,
       success: (res) => {
         var result = res.result;
-        if (result.split(":").length > 6) {
-          wx.showModal({
-            title: '提示',
-            content: "仓位码格式不符"
-          });
-        } else {
-          wx.navigateTo({
-            url: '../scanresult/scanresult?storageNum=' + result
-          })
-        }
+        wx.request({
+          url: app.globalData.twUrl + '/estapi/api/CutPieceEntry/CheckPosition?p2=' + result,
+          data: {},
+          method: 'GET',
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            if (res.data.name) {
+              wx.navigateTo({
+                url: '../scanresult/scanresult?storageNum=' + result
+              });
+            } else {
+              that.showDialog();
+            }
+          }
+        })
       }
     });
     // wx.navigateTo({
-    //   url: '../scanresult/scanresult?storageNum=4b01-1'
+    //   url: '../scanresult/scanresult?storageNum=4a04上'
+    // })
+    // wx.navigateTo({
+    //   url: '../inputbyhand/inputbyhand?storageNum=4b01-1'
     // })
   },
-  getOut: function() {
-    wx.navigateBack({
-      delta: -1
+  getOut: function () {
+    var that = this;
+    wx.scanCode({
+      onlyFromCamera: true,
+      success: (res) => {
+        var result = res.result;
+        wx.request({
+          url: app.globalData.twUrl + '/estapi/api/CutPieceEntry/CheckPosition?p2=' + result,
+          data: {},
+          method: 'GET',
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function(res) {
+            if (res.data.name) {
+              wx.navigateTo({
+                url: '../scanoutresult/scanoutresult?storageNum=' + result
+              });
+            } else {
+              that.showDialog();
+            }
+          }
+        })
+      }
     });
+    // wx.navigateTo({
+    //   url: '../scanoutresult/scanoutresult?storageNum=3A05下'
+    // })
   },
   onLoad: function () {
   },
@@ -38,28 +76,7 @@ Page({
       url: '../search/search'
     })
   },
-  requestTest: function() {
-    var sendData = {};
-    sendData.orderno = 'KF174TK22B';
-    sendData.part = '上衣';
-    sendData.bedno = '2';
-    sendData.grpno = '31';
-    sendData.color = '粉红';
-    sendData.sizes = '160';
-    sendData.quantity = '5';
-    sendData.kind = "分码";
-    sendData.position = '4A01-1';
-    var getUrl = app.globalData.twUrl + "/estapi/api/CutPieceEntry/InsertMatchedData";
-    wx.request({
-      url: getUrl,
-      data: sendData,
-      method: 'GET',
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data);
-      }
-    })
+  showDialog() {
+    this.dialog.showModal();
   }
 })

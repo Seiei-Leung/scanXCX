@@ -12,7 +12,13 @@ Page({
     storageNum: "",
     orderno: "",
     bedNum: "",
-    size: ""
+    size: "",
+    dialogTitle: "",
+    dialogTxt: "",
+    iconType: 0
+  },
+  onReady: function () {
+    this.dialog = this.selectComponent("#dialog");
   },
 
   /**
@@ -32,59 +38,19 @@ Page({
           that.setData({
             storageNum: options.storageNum
           })
-          if (res.data.kind && res.data.kind == "分床") {
+          if (res.data[0] && res.data[0].kind == "分床") {
             that.setData({
               activeIndex: 0,
-              orderno: res.data.orderno,
-              bedNum: res.data.bednno
+              orderno: res.data[0].orderno,
+              bedNum: res.data[0].bednno
             })
-          } else if (res.data.kind && res.data.kind == "分码") {
+          } else if (res.data[0] && res.data[0].kind == "分码") {
             that.setData({
               activeIndex: 1,
-              orderno: res.data.orderno,
-              size: res.data.sizes
+              orderno: res.data[0].orderno,
+              size: res.data[0].sizes
             })
           }
-        }
-      })
-    }
-  },
-  outStorage: function () {
-    var that = this;
-    if (that.data.storageNum) {
-      wx.request({
-        url: app.globalData.twUrl + '/estapi/api/CutPieceEntry/OutStore',
-        data: {
-          orderno: that.data.orderno,
-          position: that.data.storageNum
-        },
-        method: 'GET',
-        header: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          console.log(res.data);
-          if (res.data.result == "SUCCESS") {
-            that.setData({
-              orderno: "",
-              bedNum: "",
-              size: ""
-            });
-            wx.showToast({
-              title: '出仓成功',
-              icon: 'success',
-              duration: 1000
-            })
-          } else {
-            wx.showToast({
-              title: res.data.result,
-              icon: 'fail',
-              duration: 1000
-            })
-          }
-        },
-        fail: function (res) {
-          console.log(res.data);
         }
       })
     }
@@ -112,10 +78,12 @@ Page({
       onlyFromCamera: true,
       success: (res) => {
         if (res.result.split(":").length < 6) {
-          wx.showModal({
-            title: '扫码失败',
-            content: "工飞码格式不符"
-          });
+          that.setData({
+            dialogTitle: "扫码失败",
+            dialogTxt: "工飞码格式不符",
+            iconType: 0
+          })
+          that.dialog.showModal();
         } else {
           var
             Scanresult = res.result.split(":"),
@@ -142,24 +110,30 @@ Page({
                   orderno: sendData.orderno,
                   bedNum: sendData.bedno,
                   size: sendData.sizes
-                })
-                wx.showModal({
-                  title: '成功',
-                  content: "扫码成功"
                 });
+                that.setData({
+                  dialogTitle: "成功",
+                  dialogTxt: "扫码成功",
+                  iconType: 1
+                });
+                that.dialog.showModal();
               } else {
-                wx.showModal({
-                  title: '失败',
-                  content: JSON.stringify(res.data.result)
+                that.setData({
+                  dialogTitle: "失败",
+                  dialogTxt: JSON.stringify(res.data.result),
+                  iconType: 0
                 });
-
+                that.dialog.showModal();
               }
-
             }
           })
         }
-
       }
     });
+  },
+  inputByHand: function() {
+    wx.navigateTo({
+      url: '../inputbyhand/inputbyhand?storageNum=' + this.data.storageNum
+    })
   }
 })

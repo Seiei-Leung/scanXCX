@@ -1,5 +1,5 @@
 <view>
-  <view class="weui-cells weui-cells_after-title" style='position: fixed;left: 0; right: 0;'>
+  <view class="weui-cells weui-cells_after-title" style='position: fixed;left: 0; right: 0;z-index:100;background-color:#fff;'>
     <view class="weui-cell weui-cell_select">
       <view class="weui-cell__hd" style="width: 105px">
         <picker bindchange="bindCountryCodeChange" value="{{selectCodeIndex}}" range="{{selectCodes}}">
@@ -11,37 +11,46 @@
       </view>
     </view>
   </view>
-
-  <view class="page" style='position: fixed;top:44px;left: 0; right: 0;'>
-    <view class="page__bd">
-      <view class="weui-tab">
-        <view class="weui-navbar">
-          <block wx:for="{{tabs}}" wx:key="*this">
-            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-              <view class="weui-navbar__title">{{item}}</view>
-            </view>
-          </block>
-          <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  <view>
+    <view class='secondWrapper'>
+      <view class='sizeWrapper'>
+        <view class="title">尺码</view>
+        <view class='inputWrapper'>
+          <input bindinput="bindSizeInput" placeholder="请输入尺码"></input>
         </view>
-        <view class="weui-tab__panel">
+      </view>
+      <view class='bedWrapper'>
+        <view class="title">床次</view>
+        <view class='inputWrapper'>
+          <input bindinput="bindBednumInput" placeholder="请输入床次"></input>
         </view>
       </view>
     </view>
   </view>
-    <view style="padding: 100px 0 20px 0;z-index: -1;">
-          <view>
-            <view class="searchBox" wx:for="{{resultList}}" wx:for-item="item" wx:if="{{activeIndex == 0 && item.sizes}}">
-              <view>仓位：{{item.position}}</view>
-              <view>制单号：{{item.orderno}}</view>
-              <view>尺码：{{item.sizes}}</view>
-            </view>
-          </view>
-          <view>
-            <view class="searchBox" wx:for="{{resultList}}" wx:for-item="item" wx:if="{{activeIndex == 1 && item.bedno}}">
-              <view>仓位：{{item.position}}</view>
-              <view>制单号：{{item.orderno}}</view>
-              <view>床次：{{item.bedno}}</view>
-            </view>
-          </view>
-          </view>
+  <view style="padding: 100px 0 20px 0;z-index: -1;">
+    <view class="resultWrapper" wx:if="{{sizesList.length>0}}">
+      <view class='title'>
+        分 码
+      </view>
+      <view style='display:inline-block;width:90%;margin-left: 10%;'>
+        <view class="searchBox" wx:for="{{sizesList}}" wx:for-item="item">
+          <view>仓位：{{item.position}}</view>
+          <view>制单号：{{item.orderno}}</view>
+          <view>尺码：{{item.sizes}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="resultWrapper" style='margin-top:20px;' wx:if="{{bedList.length>0}}">
+      <view class='title'>
+        分 床
+      </view>
+      <view style='display:inline-block;width:90%;margin-left: 10%;'>
+        <view class="searchBox" wx:for="{{bedList}}" wx:for-item="item">
+          <view>仓位：{{item.position}}</view>
+          <view>制单号：{{item.orderno}}</view>
+          <view>床次：{{item.bedno}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

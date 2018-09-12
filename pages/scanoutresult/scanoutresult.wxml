@@ -1,0 +1,12 @@
+<view>
+  <view class="searchBox" wx:for="{{resultList}}">
+    <view>制单号：{{item.orderno}}</view>
+    <view wx:if="{{item.kind == '分床'}}">床次：{{item.bednno}}</view>
+    <view wx:if="{{item.kind == '分码'}}">尺码：{{item.sizes}}</view>
+    <view class="btn" hover-class='active' data-kind="{{item.kind}}" data-orderno="{{item.orderno}}" data-bednno="{{item.bednno}}" data-sizes="{{item.sizes}}" data-index="{{index}}" bindtap="outStorage">出仓</view>
+  </view>
+  <view wx:if="{{resultList.length == 0}}" style="margin-top: 20px;text-align:center;">
+    暂无数据
+  </view>
+</view>
+<dialog id='dialog' dialogTitle="{{dialogTitle}}" dialogTxt="{{dialogTxt}}" iconType="{{iconType}}"></dialog>

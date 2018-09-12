@@ -6,16 +6,17 @@
 	font-size: 0;
 }
 .inandout .pageWrapper .item{
-	width: 50px;
+	width: 80px;
 	padding: 4px 8px;
 	color: #fff;
 	font-size: 16px;
+  line-height: 1.8em;
 	text-align: center;
 	border-radius: 4px;
-	background-color: #ddd
+	background-color: #3BBF67;
 }
 .inandout .pageWrapper .active {
-	background-color: #3BBF67;
+	background-color: #00960c;
 }
 .inandout .inputBar {
 	margin-top: 20px;
@@ -46,5 +47,4 @@
 	vertical-align: top;
 	line-height: 24px;
 	font-size: 16px;
-	
 }

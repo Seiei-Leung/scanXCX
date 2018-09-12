@@ -1,0 +1,32 @@
+<view>
+  <view style='position: fixed;top:0;width:100%;padding-bottom: 20px;background-color: #fff;'>
+    <view class="pageWrapper">
+      <view class="item {{activeIndex == 0 ? 'active' : ''}}" bindtap="clickForBedNum" data-kind="bed">分床</view>
+      <view class="item {{activeIndex == 1 ? 'active' : ''}}" bindtap="clickForBedNum" data-kind="size">分码</view>
+    </view>
+    <view class="inputBar">
+      <view class="label">制单号：</view>
+      <input class="input" bindinput='inputChange' value="{{inputTxt}}"></input>
+    </view>
+  </view>
+  <view style='margin-top:130px;' wx:if="{{!isSelectOrdernum}}">
+    <view class="inputBar" wx:if="{{activeIndex == 0}}">
+      <view class="label">床次：</view>
+      <input class="input" value="{{bednum}}" bindinput='bednumChange'></input>
+    </view>
+    <view class="inputBar" wx:if="{{activeIndex == 1}}">
+      <view class="label">尺码：</view>
+      <input class="input" value="{{sizenum}}" bindinput='sizenumChange'></input>
+    </view>
+    <view class='btn' bindtap='submitBtn'>提交</view>
+  </view>
+  <view class='resultWrapper' wx:if="{{isSelectOrdernum}}">
+  <view class='cancelBtn' bindtap='cancelBtnSelect'>
+    取消
+  </view>
+    <view class='resultItem' wx:for='{{resultList}}'>
+      <view class="txt" bindtap='selectOrdernum' data-ordernum="{{item.orderno}}">{{item.orderno}}</view>
+    </view>
+  </view>
+</view>
+<dialog id='dialog' dialogTitle="{{dialogTitle}}" dialogTxt="{{dialogTxt}}" iconType="{{iconType}}"></dialog>
