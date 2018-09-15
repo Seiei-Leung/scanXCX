@@ -1,4 +1,5 @@
 <view>
+  <view class='title'>{{storageNum}}</view>
   <view class="searchBox" wx:for="{{resultList}}">
     <view>制单号：{{item.orderno}}</view>
     <view wx:if="{{item.kind == '分床'}}">床次：{{item.bednno}}</view>
