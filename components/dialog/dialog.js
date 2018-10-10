@@ -15,6 +15,10 @@ Component({
     iconType: {
       type: Number,
       value: 0
+    },
+    funcType: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -32,12 +36,18 @@ Component({
     hideModel: function() {
       this.setData({
         isShowModel: false
-      })
+      });
+      console.log(this.properties.funcType)
+      if (this.properties.funcType == 1) {
+        wx.navigateBack({
+          delta: 1
+        });
+      }
     },
     showModal: function() {
       this.setData({
         isShowModel: true
-      })
+      });
     },
     preventTouchMove: function() {}
   }

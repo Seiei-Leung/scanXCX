@@ -1,0 +1,80 @@
+
+.contain-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+.letter-wrapper {
+	width: 21%;
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: space-around;
+	align-content: flex-start;
+	margin-top: 5px;
+}
+.letter-wrapper .item {
+	display: inline-block;
+	margin-top: 1px;
+  width: 33%;
+  text-align: center;
+}
+.letter-wrapper .item .square {
+	position: relative;
+	box-sizing: border-box;
+  padding-top: 4%;
+	margin: auto;
+  height: 41px;
+	width: 95%;
+	border-radius: 4px;
+	border: 2px solid;
+} 
+.letter-wrapper .item .square .text{
+	text-align: center;
+	white-space: nowrap;
+	font-size: 9px;
+} 
+    
+.letter-wrapper0 .item .square {
+    border-color: #e60012;
+} 
+.letter-wrapper0 .item .square.active {
+    background-color: #e60012;
+} 
+.letter-wrapper1 .item .square {
+    border-color: #00aae8;
+}
+.letter-wrapper1 .item .square.active {
+    background-color: #00aae8;
+} 
+.letter-wrapper2 .item .square {
+    border-color: #f2d300;
+}
+.letter-wrapper2 .item .square.active {
+    background-color: #f2d300;
+} 
+.letter-wrapper3 .item .square {
+    border-color: #64b731;
+}
+.letter-wrapper3 .item .square.active {
+    background-color: #64b731;
+} 
+.letter-wrapper4 .item .square {
+    border-color: #a21e87;
+}
+.letter-wrapper4 .item .square.active {
+    background-color: #a21e87;
+}
+.letter-wrapper .item .txt {
+	font-size: 8px;
+}
+.letter-wrapper .title {
+	width: 100%;
+	font-size: 14px;
+	text-align: center;
+}
+.letter-wrapper3 {
+	width: 15%;
+}
+.letter-wrapper3 .item {
+	width: 48%
+}

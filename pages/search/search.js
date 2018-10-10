@@ -9,6 +9,8 @@ Page({
     resultList: [],
     bedList: [],
     sizesList: [],
+    pakeageList: [],
+    RSpakeageList:[],
     RSbedList: [],
     RSsizesList: [],
     bedKey: "",
@@ -19,7 +21,7 @@ Page({
     clearTimeout(T);
     T = setTimeout(() => {
       wx.request({
-        url: app.globalData.twUrl + "/estapi/api/CutPieceEntry/SearchData?kind=" + that.data.selectCodes[that.data.selectCodeIndex] + "&keyword=" + e.detail.value,
+        url: app.globalData.twUrl + "/estapi/api/CutPieceEntry/SearchData?kind=" + that.data.selectCodes[that.data.selectCodeIndex] + "&keyword=" + escape(e.detail.value),
         method: "GET",
         header: {
           'content-type': 'application/json'
@@ -28,18 +30,23 @@ Page({
           console.log(res.data);
           var sizesList = [];
           var bedList = [];
+          var pakeageList = [];
           res.data.forEach((item) => {
-            if (item.sizes) {
+            if (item.kind == "分码") {
               sizesList.push(item);
             }
-            if (item.bedno) {
+            if (item.kind == "分床") {
               bedList.push(item);
+            }
+            if (item.kind == "打包") {
+              pakeageList.push(item);
             }
           });
           that.setData({
             resultList: res.data,
             RSsizesList: sizesList,
-            RSbedList: bedList
+            RSbedList: bedList,
+            RSpakeageList: pakeageList
           });
           if (that.data.bedKey) {
             bedList = [];
@@ -59,7 +66,8 @@ Page({
           }
           that.setData({
             sizesList: sizesList,
-            bedList: bedList
+            bedList: bedList,
+            pakeageList: pakeageList
           });
         }
 
@@ -80,7 +88,8 @@ Page({
         if (!that.data.bedKey) {
           that.setData({
             sizesList: that.data.RSsizesList,
-            bedList: that.data.RSbedList
+            bedList: that.data.RSbedList,
+            pakeageList: that.data.RSpakeageList
           });
         } else {
           var bedList=[];
@@ -90,6 +99,7 @@ Page({
             }
           });
           that.setData({
+            pakeageList: [],
             sizesList: [],
             bedList: bedList
           });
@@ -101,6 +111,7 @@ Page({
           }
         });
         that.setData({
+          pakeageList: [],
           sizesList: sizesList,
           bedList: []
         });
@@ -118,6 +129,7 @@ Page({
       if (e.detail.value == "") {
         if (!that.data.sizeKey) {
           that.setData({
+            pakeageList: that.data.RSpakeageList,
             sizesList: that.data.RSsizesList,
             bedList: that.data.RSbedList
           });
@@ -129,6 +141,7 @@ Page({
             }
           });
           that.setData({
+            pakeageList: [],
             sizesList: sizesList,
             bedList: []
           });
@@ -140,6 +153,7 @@ Page({
           }
         });
         that.setData({
+          pakeageList: [],
           sizesList: [],
           bedList: bedList
         })

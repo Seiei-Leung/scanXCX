@@ -1,0 +1,20 @@
+<view>
+  <view style="text-align: center;margin-top:0.5em;">{{storageFloor}}F仓位空置图</view>
+  <view class="contain-wrapper">
+    <view class='letter-wrapper {{"letter-wrapper" + index}}' wx:for="{{resultList}}" wx:for-item="list" wx:for-index="index">
+      <view class="title">{{storageFloor + letterList[index]}}</view>
+      <view class="item" wx:for="{{list}}" wx:for-item="item" wx:for-index="idx" wx:if="{{!(index == 3)}}">
+        <view class="square {{item.cnt>0 || item.kind? 'active' : ''}}" wx:if="{{!item.hided}}">
+         <view class="text" style="text-align: center;" wx:if="{{item.kind}}">{{item.kind}}</view>
+         <view class="txt">{{item.code}}</view>
+        </view>
+      </view>
+      <view class="item" wx:for="{{list}}" wx:for-item="item" wx:for-index="idx" wx:if="{{index == 3}}">
+        <view class="square {{item.cnt>0 || item.kind? 'active' : ''}}">
+         <view class="text" style="text-align: center;" wx:if="{{item.kind}}">{{item.kind}}</view>
+         <view class="txt">{{item.code}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

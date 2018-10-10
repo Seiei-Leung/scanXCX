@@ -20,5 +20,46 @@
       <view class="txt">查询</view>
     </view>
   </view>
+  <view class="linkBar">
+    <view class="item" hover-class="active" bindtap="goStorageImage" data-storagefloor="2">
+      <view class="imgWrapper">
+        <image src="../../img/icon_21.png" class="img"></image>
+      </view>
+      <view class="txt">2F仓位图</view>
+    </view>
+    <view class="item" hover-class="active" bindtap="goStorageImage" data-storagefloor="3">
+       <view class="imgWrapper">
+        <image src="../../img/icon_21.png" class="img"></image>
+      </view>
+      <view class="txt">3F仓位图</view> 
+    </view>
+    <view class="item" hover-class="active" bindtap="goStorageImage" data-storagefloor="4">
+      <view class="imgWrapper">
+        <image src="../../img/icon_21.png" class="img"></image>
+      </view>
+      <view class="txt">4F仓位图</view>
+    </view>
+  </view>
+  <view class="linkBar">
+    <view class="item" hover-class="active" bindtap="goPackagingInStorage">
+      <view class="imgWrapper">
+        <image src="../../img/icon_41.png" class="img"></image>
+      </view>
+      <view class="txt">打包入仓</view>
+    </view>
+    <view class="item" hover-class="active" bindtap="goPackagingOutStorage">
+       <view class="imgWrapper">
+        <image src="../../img/icon_16.png" class="img"></image>
+      </view>
+      <view class="txt">打包出仓</view>
+    </view>
+    <view class='item'></view>
+    <!-- <view class="item" hover-class="active" bindtap="goSearchPackaging">
+      <view class="imgWrapper">
+        <image src="../../img/icon_7.png" class="img"></image>
+      </view>
+      <view class="txt">打包查询</view>
+    </view> -->
+  </view>
 </view>
-<dialog id='dialog' dialogTitle="提示" dialogTxt="查无此仓位"></dialog>
+<dialog id='dialog' dialogTitle="{{dialogTitle}}" dialogTxt="{{dialogTxt}}" iconType="{{iconType}}" funcType="{{funcType}}"></dialog>

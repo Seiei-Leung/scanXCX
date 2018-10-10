@@ -23,6 +23,22 @@
         <view class="input">{{item.sizes}}</view>
       </view>
     </view>
+      <view style="padding-left: 1em;margin-top: 20px;">
+        <radio-group class="radio-group" bindchange="radioChange">
+          是否配好片：
+          <label class="radio" wx:for="{{radioList}}">
+            <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.value}}
+          </label>
+        </radio-group>
+      </view>
+    <view wx:if="{{resultList.length == 1}}">
+      <view wx:if="{{resultList[0].kind == '分床'}}" class="redTxt">
+        备注：此仓位可再扫多一床货物
+      </view>
+      <view wx:if="{{resultList[0].kind == '分码'}}" class="redTxt">
+        备注：此仓位可再扫多一码货物
+      </view>
+    </view>
   </view>
 </view>
-<dialog id='dialog' dialogTitle="{{dialogTitle}}" dialogTxt="{{dialogTxt}}" iconType="{{iconType}}"></dialog>
+<dialog id='dialog' dialogTitle="{{dialogTitle}}" dialogTxt="{{dialogTxt}}" iconType="{{iconType}}" funcType="{{funcType}}"></dialog>

@@ -4,7 +4,12 @@
     "pages/search/search",
     "pages/scanresult/scanresult",
     "pages/scanoutresult/scanoutresult",
-    "pages/inputbyhand/inputbyhand"
+    "pages/inputbyhand/inputbyhand",
+    "pages/storageimg/storageimg",
+    "pages/test/test",
+    "pages/searchPackaging/searchPackaging",
+    "pages/packaginginstorage/packaginginstorage",
+    "pages/packagingoutstorage/packagingoutstorage"
   ],
   "window": {
     "backgroundTextStyle": "light",

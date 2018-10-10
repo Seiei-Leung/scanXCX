@@ -1,0 +1,22 @@
+<view class='inandout'>
+  <view class="pageWrapper" style="padding-top: 20px;">
+    <view class="item" hover-class='active' bindtap="scan">打包入仓</view>
+  </view>
+  <view>
+    <view class="inputBar">
+      <view class="label">仓位：</view>
+      <view class="input">{{storageNum}}</view>
+    </view>
+    <view wx:for="{{resultList}}">
+      <view class="inputBar">
+        <view class="label">制单号：</view>
+        <view class="input">{{item.orderno}}</view>
+      </view>
+      <view class="inputBar">
+        <view class="label">床次：</view>
+        <view class="input">{{item.bedno}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<dialog id='dialog' dialogTitle="{{dialogTitle}}" dialogTxt="{{dialogTxt}}" iconType="{{iconType}}" funcType="{{funcType}}"></dialog>

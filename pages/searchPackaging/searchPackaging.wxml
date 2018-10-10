@@ -1,0 +1,34 @@
+<view>
+  <view class="weui-cells weui-cells_after-title" style='position: fixed;left: 0; right: 0;z-index:100;background-color:#fff;'>
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd" style="width: 105px">
+        <picker bindchange="bindCountryCodeChange" value="{{selectCodeIndex}}" range="{{selectCodes}}">
+          <view class="weui-select">{{selectCodes[selectCodeIndex]}}</view>
+        </picker>
+      </view>
+      <view class="weui-cell__bd weui-cell__bd_in-select-before">
+        <input class="weui-input" bindinput="bindKeyInput" placeholder="请输入内容" />
+      </view>
+    </view>
+  </view>
+  <view>
+    <view class='secondWrapper'>
+      <view class='bedWrapper'>
+        <view class="title">床次</view>
+        <view class='inputWrapper'>
+          <input bindinput="bindBednumInput" placeholder="请输入床次"></input>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style="padding: 100px 0 20px 0;z-index: -1;">
+    <view class="resultWrapper" style='margin-top:20px;' wx:if="{{bedList.length>0}}">
+      <view>
+        <view class="searchBox" wx:for="{{bedList}}" wx:for-item="item">
+          <view>制单号：{{item.orderno}}</view>
+          <view>床次：{{item.bedno}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

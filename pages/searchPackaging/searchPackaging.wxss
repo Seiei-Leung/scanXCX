@@ -7,7 +7,7 @@
   margin: auto;
   margin-top: 20px;
   width: 95%;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 4px;
   border: 1px solid #ddd;
 }
@@ -63,7 +63,6 @@
 }
 .resultWrapper {
   position:relative;
-  border: 1px solid #ddd;
   padding-bottom:20px;
 }
 .resultWrapper .title{
