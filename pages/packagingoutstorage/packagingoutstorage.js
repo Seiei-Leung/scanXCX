@@ -28,7 +28,7 @@ Page({
           that.setData({
             resultList: res.data
           })
-          console.log(that.data.resultList)
+          console.log(res.data)
         }
       })
     }
@@ -40,7 +40,9 @@ Page({
       data: {
         orderno: event.currentTarget.dataset.orderno,
         position: that.data.storageNum,
-        bedno: event.currentTarget.dataset.bednno ? event.currentTarget.dataset.bednno : "0"
+        bedno: event.currentTarget.dataset.bednno ? event.currentTarget.dataset.bednno : "0",
+        kind: event.currentTarget.dataset.kind,
+        sizes: event.currentTarget.dataset.sizes ? event.currentTarget.dataset.sizes : "0"
       },
       method: 'GET',
       header: {

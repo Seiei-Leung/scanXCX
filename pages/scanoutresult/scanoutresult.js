@@ -34,12 +34,14 @@ Page({
           that.setData({
             resultList: res.data
           })
+          console.log(res.data)
         }
       })
     }
   },
 
   outStorage: function(event) {
+    console.log(123);
     var that = this;
     wx.request({
       url: app.globalData.twUrl + '/estapi/api/CutPieceEntry/OutStore',

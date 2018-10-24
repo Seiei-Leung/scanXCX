@@ -9,10 +9,14 @@ Page({
     resultList: [],
     bedList: [],
     sizesList: [],
+    flowerList: [],
     pakeageList: [],
+    flowerPakeageList: [],
     RSpakeageList:[],
     RSbedList: [],
     RSsizesList: [],
+    RSflowerPakeageList: [],
+    RSflowerList: [],
     bedKey: "",
     sizeKey: ""
   },
@@ -30,23 +34,33 @@ Page({
           console.log(res.data);
           var sizesList = [];
           var bedList = [];
+          var flowerList = [];
           var pakeageList = [];
+          var flowerPakeageList = [];
           res.data.forEach((item) => {
             if (item.kind == "分码") {
               sizesList.push(item);
-            }
-            if (item.kind == "分床") {
+            } 
+            else if (item.kind == "分床") {
               bedList.push(item);
             }
-            if (item.kind == "打包") {
+            else if (item.kind == "花片") {
+              flowerList.push(item);
+            }
+            else if (item.kind == "裁片打包") {
               pakeageList.push(item);
+            }
+            else if (item.kind == "花片打包") {
+              flowerPakeageList.push(item);
             }
           });
           that.setData({
             resultList: res.data,
             RSsizesList: sizesList,
             RSbedList: bedList,
-            RSpakeageList: pakeageList
+            RSflowerList: flowerList,
+            RSpakeageList: pakeageList,
+            RSflowerPakeageList: flowerPakeageList
           });
           if (that.data.bedKey) {
             bedList = [];
@@ -67,7 +81,9 @@ Page({
           that.setData({
             sizesList: sizesList,
             bedList: bedList,
-            pakeageList: pakeageList
+            flowerList: flowerList,
+            pakeageList: pakeageList,
+            flowerPakeageList: flowerPakeageList
           });
         }
 
@@ -89,7 +105,9 @@ Page({
           that.setData({
             sizesList: that.data.RSsizesList,
             bedList: that.data.RSbedList,
-            pakeageList: that.data.RSpakeageList
+            pakeageList: that.data.RSpakeageList,
+            flowerList: that.data.RSflowerList,
+            flowerPakeageList: that.data.RSflowerPakeageList
           });
         } else {
           var bedList=[];
@@ -99,7 +117,9 @@ Page({
             }
           });
           that.setData({
+            flowerPakeageList: [],
             pakeageList: [],
+            flowerList: [],
             sizesList: [],
             bedList: bedList
           });
@@ -111,7 +131,9 @@ Page({
           }
         });
         that.setData({
+          flowerPakeageList: [],
           pakeageList: [],
+          flowerList: [],
           sizesList: sizesList,
           bedList: []
         });
@@ -131,7 +153,9 @@ Page({
           that.setData({
             pakeageList: that.data.RSpakeageList,
             sizesList: that.data.RSsizesList,
-            bedList: that.data.RSbedList
+            bedList: that.data.RSbedList,
+            flowerList: that.data.RSflowerList,
+            flowerPakeageList: that.data.RSflowerPakeageList
           });
         } else {
           var sizesList = [];
@@ -141,7 +165,9 @@ Page({
             }
           });
           that.setData({
+            flowerPakeageList: [],
             pakeageList: [],
+            flowerList: [],
             sizesList: sizesList,
             bedList: []
           });
@@ -153,8 +179,10 @@ Page({
           }
         });
         that.setData({
+          flowerPakeageList: [],
           pakeageList: [],
           sizesList: [],
+          flowerList: [],
           bedList: bedList
         })
       }

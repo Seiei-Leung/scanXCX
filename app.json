@@ -8,8 +8,9 @@
     "pages/storageimg/storageimg",
     "pages/test/test",
     "pages/searchPackaging/searchPackaging",
-    "pages/packaginginstorage/packaginginstorage",
-    "pages/packagingoutstorage/packagingoutstorage"
+    "pages/packagingoutstorage/packagingoutstorage",
+    "pages/packagingbyhand/packagingbyhand",
+    "pages/packaginginstorage/packaginginstorage"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,6 +1,8 @@
 <view class='inandout'>
   <view class="pageWrapper" style="padding-top: 20px;">
-    <view class="item" hover-class='active' bindtap="scan">打包入仓</view>
+    <view class="item" hover-class='active' bindtap="scan" data-kind="normal">打包入仓</view>
+    <view class="item" hover-class='active' bindtap="scan" data-kind="flower">大细花打包</view>
+    <view class="item" hover-class='active' bindtap="goByHand">手动打包</view>
   </view>
   <view>
     <view class="inputBar">
@@ -16,7 +18,22 @@
         <view class="label">床次：</view>
         <view class="input">{{item.bedno}}</view>
       </view>
+      <view class="inputBar">
+        <view class="label">袋数：</view>
+        <view class="input">{{item.quantity}}</view>
+      </view>
     </view>
+  </view>
+</view>
+<view wx:if="{{isShowQuantity}}" class="quantity">
+  <view class="inputBar">
+    <view class="label">袋数：</view>
+    <picker bindchange="quantityPickerChange" value="{{quantityindex}}" range="{{quantityArray}}">
+      <input class="input" value="{{quantityArray[quantityindex]}}" disabled='true'></input>
+    </picker>
+  </view>
+  <view>
+    <view class="btn" bindtap='submitBtn'>提交</view>
   </view>
 </view>
 <dialog id='dialog' dialogTitle="{{dialogTitle}}" dialogTxt="{{dialogTxt}}" iconType="{{iconType}}" funcType="{{funcType}}"></dialog>

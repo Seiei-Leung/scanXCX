@@ -6,7 +6,8 @@
 	font-size: 0;
 }
 .inandout .pageWrapper .item{
-	width: 80px;
+  box-sizing: border-box;
+	width: 20%;
 	padding: 4px 8px;
 	color: #fff;
 	font-size: 16px;
@@ -56,4 +57,34 @@
   padding-left: 1em;
   font-size: 18px;
   color: red;
+}
+.blackBackground {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.5);
+}
+.matchesBlock {
+	box-sizing: border-box;
+	margin: auto;
+	margin-top: 100px;
+	width: 90%;
+	padding: 10px;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 4px
+}
+.matchesBlock .btnWrapper {
+	margin-top: 30px;
+	display: flex;
+	justify-content: space-around;
+}
+.matchesBlock .submitBtn {
+	padding: 5px;
+	width: 40%;
+	background-color: #3BBF67;
+	color: #fff;
+	border-radius: 4px
 }

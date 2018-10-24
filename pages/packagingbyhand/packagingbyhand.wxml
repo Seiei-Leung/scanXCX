@@ -4,9 +4,8 @@
             {{storageNum}}
         </view>
         <view class="pageWrapper">
-            <view class="item {{activeIndex == 0 ? 'active' : ''}}" bindtap="clickForBedNum" data-kind="bed">分床</view>
-            <view class="item {{activeIndex == 1 ? 'active' : ''}}" bindtap="clickForBedNum" data-kind="size">分码</view>
-            <view class="item {{activeIndex == 2 ? 'active' : ''}}" bindtap="clickForBedNum" data-kind="flower">大细花</view>
+            <view class="item {{activeIndex == 0 ? 'active' : ''}}" bindtap="clickForBedNum" data-kind="packaging">打包入仓</view>
+            <view class="item {{activeIndex == 1 ? 'active' : ''}}" bindtap="clickForBedNum" data-kind="flower">大细花入仓</view>
         </view>
         <view class="inputBar">
             <view class="label">制单号：</view>
@@ -14,36 +13,25 @@
         </view>
     </view>
     <view style='margin-top:145px;' wx:if="{{!isSelectOrdernum}}">
-        <view class="inputBar" wx:if="{{activeIndex == 0 || activeIndex == 2}}">
+        <view class="inputBar">
             <view class="label">床次：</view>
             <picker bindchange="bedPickerChange" value="{{bedindex}}" range="{{bedArray}}" range-key="bedtime">
                 <input class="input" value="{{bedArray[bedindex] ? bedArray[bedindex].bedtime : ''}}" disabled='true'></input>
             </picker>
         </view>
-        <view class="inputBar" wx:if="{{activeIndex == 1 || activeIndex == 2}}">
+        <view class="inputBar">
             <view class="label">尺码：</view>
             <picker bindchange="sizePickerChange" value="{{sizeindex}}" range="{{sizeArray}}" range-key="sizes">
                 <input class="input" value="{{sizeArray[sizeindex] ? sizeArray[sizeindex].sizes : ''}}" disabled='true'></input>
             </picker>
         </view>
-        <view class='btn' bindtap='submitBtn'>提交</view>
-    </view>
-    <view class="blackBackground" wx:if="{{isShowMatches}}">
-        <view class="matchesBlock">
-            <radio-group class="radio-group" bindchange="radioChange">
-                <label class="radio" wx:for="{{radioList}}">
-                    <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.value}}
-                </label>
-            </radio-group>
-            <view class="btnWrapper">
-                <view class="submitBtn" bindtap="submitBtn">
-                    确定
-                </view>
-                <view class="submitBtn" style="background-color: #999" bindtap="hideShowMatches">
-                    取消
-                </view>
-            </view>
+        <view class="inputBar">
+            <view class="label">袋数：</view>
+            <picker bindchange="quantityPickerChange" value="{{quantityindex}}" range="{{quantityArray}}">
+                <input class="input" value="{{quantityArray[quantityindex]}}" disabled='true'></input>
+            </picker>
         </view>
+        <view class='btn' bindtap='submitBtn'>提交</view>
     </view>
     <view class='resultWrapper' wx:if="{{isSelectOrdernum}}">
         <view class='cancelBtn' bindtap='cancelBtnSelect'>
@@ -54,4 +42,4 @@
         </view>
     </view>
 </view>
-<dialog id='dialog' dialogTitle="{{dialogTitle}}" dialogTxt="{{dialogTxt}}" iconType="{{iconType}}"></dialog>
+<dialog id='dialog' dialogTitle="{{dialogTitle}}" dialogTxt="{{dialogTxt}}" iconType="{{iconType}}" funcType="{{funcType}}"></dialog>

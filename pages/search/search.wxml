@@ -34,7 +34,7 @@
       </view>
       <view style='display:inline-block;width:90%;margin-left: 10%;'>
         <view class="searchBox" wx:for="{{sizesList}}" wx:for-item="item">
-          <view style='color: #de7a7a;'>仓位：{{item.position}}</view>
+          <view style='color: #de7a7a;'>仓位：{{item.position}}<view style='display:inline-block;padding: 0 2px;margin-left: 5px;line-height:1.2;border:1px solid #ffbebe;border-radius: 4px;' wx:if="{{item.matched}}">{{item.matched}}</view></view>
           <view style='color: #de7a7a;'>制单号：{{item.orderno}}</view>
           <view style='color: #de7a7a;'>尺码：{{item.sizes}}</view>
         </view>
@@ -54,13 +54,40 @@
     </view>
     <view class="resultWrapper" style='margin-top:20px;' wx:if="{{pakeageList.length>0}}">
       <view class='title' style="background-color: #f1ce25;color: #fff;">
-        打 包
+        裁片打包
       </view>
       <view style='display:inline-block;width:90%;margin-left: 10%;'>
         <view class="searchBox" wx:for="{{pakeageList}}" wx:for-item="item">
           <view style='color: #c3a825;'>仓位：{{item.position}}</view>
           <view style='color: #c3a825;'>制单号：{{item.orderno}}</view>
           <view style='color: #c3a825;'>床次：{{item.bedno}}</view>
+          <view style='color: #c3a825;'>袋数：{{item.quantity}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="resultWrapper" style='margin-top:20px;' wx:if="{{flowerPakeageList.length>0}}">
+      <view class='title' style="background-color: #dd0a20;color: #fff;">
+        大细花打包
+      </view>
+      <view style='display:inline-block;width:90%;margin-left: 10%;'>
+        <view class="searchBox" wx:for="{{flowerPakeageList}}" wx:for-item="item">
+          <view style='color: #a90c1d;'>仓位：{{item.position}}</view>
+          <view style='color: #a90c1d;'>制单号：{{item.orderno}}</view>
+          <view style='color: #a90c1d;'>床次：{{item.bedno}}</view>
+          <view style='color: #a90c1d;'>袋数：{{item.quantity}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="resultWrapper" style='margin-top:20px;' wx:if="{{flowerList.length>0}}">
+      <view class='title' style="background-color: #0077e6;color: #fff;">
+        大 细 花
+      </view>
+      <view style='display:inline-block;width:90%;margin-left: 10%;'>
+        <view class="searchBox" wx:for="{{flowerList}}" wx:for-item="item">
+          <view style='color: #044b8e;'>仓位：{{item.position}}<view style='display:inline-block;padding: 0 2px;margin-left: 5px;line-height:1.2;border:1px solid #ffbebe;border-radius: 4px;' wx:if="{{item.matched}}">{{item.matched}}</view></view>
+          <view style='color: #044b8e;'>制单号：{{item.orderno}}</view>
+          <view style='color: #044b8e;'>床次：{{item.bedno}}</view>
+          <view style='color: #044b8e;'>尺码：{{item.sizes}}</view>
         </view>
       </view>
     </view>
