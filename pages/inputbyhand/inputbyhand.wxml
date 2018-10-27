@@ -36,7 +36,7 @@
                 </label>
             </radio-group>
             <view class="btnWrapper">
-                <view class="submitBtn" bindtap="submitBtn">
+                <view class="submitBtn" bindtap="submitForMatches">
                     确定
                 </view>
                 <view class="submitBtn" style="background-color: #999" bindtap="hideShowMatches">
@@ -46,9 +46,9 @@
         </view>
     </view>
     <view class='resultWrapper' wx:if="{{isSelectOrdernum}}">
-        <view class='cancelBtn' bindtap='cancelBtnSelect'>
+        <!-- <view class='cancelBtn' bindtap='cancelBtnSelect'>
             取消
-        </view>
+        </view> -->
         <view class='resultItem' wx:for='{{resultList}}'>
             <view class="txt" bindtap='selectOrdernum' data-ordernum="{{item.orderno}}">{{item.orderno}}</view>
         </view>

@@ -19,7 +19,7 @@
                 <input class="input" value="{{bedArray[bedindex] ? bedArray[bedindex].bedtime : ''}}" disabled='true'></input>
             </picker>
         </view>
-        <view class="inputBar">
+        <view class="inputBar" wx:if="{{activeIndex == 1}}">
             <view class="label">尺码：</view>
             <picker bindchange="sizePickerChange" value="{{sizeindex}}" range="{{sizeArray}}" range-key="sizes">
                 <input class="input" value="{{sizeArray[sizeindex] ? sizeArray[sizeindex].sizes : ''}}" disabled='true'></input>
@@ -34,9 +34,9 @@
         <view class='btn' bindtap='submitBtn'>提交</view>
     </view>
     <view class='resultWrapper' wx:if="{{isSelectOrdernum}}">
-        <view class='cancelBtn' bindtap='cancelBtnSelect'>
+        <!-- <view class='cancelBtn' bindtap='cancelBtnSelect'>
             取消
-        </view>
+        </view> -->
         <view class='resultItem' wx:for='{{resultList}}'>
             <view class="txt" bindtap='selectOrdernum' data-ordernum="{{item.orderno}}">{{item.orderno}}</view>
         </view>
