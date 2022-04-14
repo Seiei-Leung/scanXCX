@@ -6,6 +6,7 @@
     "pages/scanoutresult/scanoutresult",
     "pages/inputbyhand/inputbyhand",
     "pages/storageimg/storageimg",
+    "pages/storageimgOfXC/storageimgOfXC",
     "pages/test/test",
     "pages/searchPackaging/searchPackaging",
     "pages/packagingoutstorage/packagingoutstorage",
@@ -17,5 +18,6 @@
     "navigationBarBackgroundColor": "#444",
     "navigationBarTitleText": "裁片超市",
     "navigationBarTextStyle": "white"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

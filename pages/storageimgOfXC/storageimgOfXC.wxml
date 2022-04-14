@@ -1,0 +1,16 @@
+<view style="padding-bottom: 100%;" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+  <view style="text-align: center;margin-top:0.5em;">XC仓位空置图</view>
+  <view class="contain-wrapper">
+    <view class='letter-wrapper {{"letter-wrapper" + index}}' wx:for="{{resultList}}" wx:for-item="list" wx:for-index="index" wx:key="index">
+      <view class="title">{{letterList[index]}}</view>
+      <view class="item {{nth == 0 ? '' : 'page2'}}" wx:for="{{list}}" wx:for-item="item" wx:for-index="idx" wx:key="idx">
+        <view class="square {{item.cnt>0 || item.kind? 'active' : ''}}" wx:if="{{!item.hided}}">
+         <view class="text" style="text-align: center;" wx:if="{{item.kind}}">{{item.kind}}</view>
+         <view class="txt">{{item.code}}</view>
+        </view>
+        <view class="square {{item.cnt>0 || item.kind? 'active' : ''}}" wx:if="{{item.hided}}">
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

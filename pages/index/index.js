@@ -126,6 +126,11 @@ Page({
             url: '../storageimg/storageimg?storageFloor=' + event.currentTarget.dataset.storagefloor
         })
     },
+    goStorageImageOfXC(event) {
+        wx.navigateTo({
+            url: '../storageimgOfXC/storageimgOfXC?storageFloor=' + event.currentTarget.dataset.storagefloor
+        })
+    },
     goPackagingInStorage() {
         var that = this;
         wx.scanCode({

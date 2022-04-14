@@ -1,4 +1,3 @@
-
 .contain-wrapper {
 	width: 100%;
 	display: flex;
@@ -33,38 +32,70 @@
 	text-align: center;
 	white-space: nowrap;
 	font-size: 9px;
-} 
+}
     
 .letter-wrapper0 .item .square {
-    border-color: #e60012;
+    border-color: #ff99cb;
 } 
 .letter-wrapper0 .item .square.active {
-    background-color: #e60012;
+    background-color: #ff99cb;
 } 
 .letter-wrapper1 .item .square {
-    border-color: #00aae8;
+    border-color: #fcc99a;
 }
 .letter-wrapper1 .item .square.active {
-    background-color: #00aae8;
+    background-color: #fcc99a;
 } 
 .letter-wrapper2 .item .square {
-    border-color: #f2d300;
+    border-color: #c5fffe;
 }
 .letter-wrapper2 .item .square.active {
-    background-color: #f2d300;
+    background-color: #c5fffe;
 } 
 .letter-wrapper3 .item .square {
-    border-color: #64b731;
+    border-color: #fefe9a;
 }
 .letter-wrapper3 .item .square.active {
-    background-color: #64b731;
+    background-color: #fefe9a;
 } 
 .letter-wrapper4 .item .square {
-    border-color: #a21e87;
+    border-color: #99cdff;
 }
 .letter-wrapper4 .item .square.active {
-    background-color: #a21e87;
+    background-color: #99cdff;
 }
+    
+.letter-wrapper0 .item.page2 .square {
+    border-color: #d8f7d5;
+} 
+.letter-wrapper0 .item.page2 .square.active {
+    background-color: #d8f7d5;
+} 
+.letter-wrapper1 .item.page2 .square {
+    border-color: #00cdfc;
+}
+.letter-wrapper1 .item.page2 .square.active {
+    background-color: #00cdfc;
+} 
+.letter-wrapper2 .item.page2 .square {
+    border-color: #cd98ff;
+}
+.letter-wrapper2 .item.page2 .square.active {
+    background-color: #cd98ff;
+} 
+.letter-wrapper3 .item.page2 .square {
+    border-color: #98cb00;
+}
+.letter-wrapper3 .item.page2 .square.active {
+    background-color: #98cb00;
+} 
+.letter-wrapper4 .item.page2 .square {
+    border-color: #ffcc00;
+}
+.letter-wrapper4 .item.page2 .square.active {
+    background-color: #ffcc00;
+}
+
 .letter-wrapper .item .txt {
 	font-size: 8px;
 }
@@ -72,10 +103,4 @@
 	width: 100%;
 	font-size: 14px;
 	text-align: center;
-}
-.letter-wrapper3 {
-	width: 15%;
-}
-.letter-wrapper3 .item {
-	width: 48%
 }

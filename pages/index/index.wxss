@@ -7,7 +7,7 @@
   -webkit-flex: 1;
   flex: 1;
 	height: 100px;
-	border: 1rpx solid #eee;
+  border: 1rpx solid #eee;
 }
 .linkBar .item.active {
   background-color: #eee;
